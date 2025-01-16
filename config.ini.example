@@ -1,0 +1,3 @@
+dns="mysql:host=localhost;user=youruser;password=yourpassword;dbname=dbname;charset=utf8mb4"
+admin_login=adminlogin
+admin_password=adminpassword
