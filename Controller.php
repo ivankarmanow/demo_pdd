@@ -91,7 +91,6 @@ class Controller {
             return;
         }
         $user = self::$db->fetchOne("SELECT 'User', id, name, password FROM user WHERE login = :login", ["login" => $_POST['login']]);
-//        var_dump($user);
         if ($user) {
             if (password_verify($_POST['password'], $user->password)) {
                 $_SESSION['user_id'] = $user->id;
@@ -150,10 +149,8 @@ class Controller {
         if ($res) {
             $_SESSION['user_id'] = self::$db->lastRowId();
             $_SESSION['name'] = $_POST['name'];
-//            header("Location: /");
             echo json_encode(["status" => true]);
         } else {
-//            header("Location: /reg_form");
             echo json_encode(["status" => false, "errors" => ["db" => "query"]]);
         }
     }
